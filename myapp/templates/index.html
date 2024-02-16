@@ -1,0 +1,49 @@
+<!-- weather.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="border">
+    <div><h1 class="header">Weather APP</h1></div><br>
+    
+    <div>
+        <form action="weather" method="POST">
+            {% csrf_token %}
+            <input type="text" class="holder" name="mycity" placeholder="Enter City Name" required>
+            <input type="Submit" class="btn btn-success" value="Add City">
+        </form>
+        <p style="color: red;">{{error_message}}</p><hr>
+    <h1 style="color: rgb(5, 51, 108);">{{ weather_data.city }}</h1>
+    <p>Temperature: {{ weather_data.temperature }}°C</p>
+    <p>Humidity: {{ weather_data.humidity }}%</p>
+    <p>Wind Speed: {{ weather_data.wind_speed }} m/s</p>
+    
+    </div>
+   
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
